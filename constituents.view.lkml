@@ -90,4 +90,10 @@ view: constituents {
     type: count
     drill_fields: []
   }
+
+  measure: total_donation_amt {
+    type: sum
+    sql: ${donation_amt} ;;
+    value_format_name: usd
+  }
 }
