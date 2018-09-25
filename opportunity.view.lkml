@@ -86,4 +86,10 @@ view: opportunity {
     type: count
     drill_fields: [opportunity_id, account_name, full_name, stage_name]
   }
+
+  measure: total_acv {
+    type: sum
+    sql: ${acv} ;;
+    value_format_name: usd
+  }
 }
