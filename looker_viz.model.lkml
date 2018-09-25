@@ -13,3 +13,7 @@ persist_with: looker_viz_default_datagroup
 explore: constituents {}
 
 explore: opportunity {}
+
+explore: sankey {}
+
+explore: timeline {}
