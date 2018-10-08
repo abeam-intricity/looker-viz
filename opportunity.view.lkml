@@ -10,11 +10,71 @@ view: opportunity {
   dimension: account_name {
     type: string
     sql: ${TABLE}."ACCOUNT_NAME" ;;
+    action: {
+      label: "Update ACV"
+      url: "https://www.google.com"
+      icon_url: "//c1.sfdcstatic.com/etc/designs/sfdc-www/en_us/favicon.ico"
+      form_url: "https://example.com/ping/{{ value }}/form.json"
+      form_param: {
+        name: "TITLE"
+        type: textarea
+      }
+    }
+    action: {
+      label: "Add Note"
+      url: "https://www.google.com"
+      icon_url: "//c1.sfdcstatic.com/etc/designs/sfdc-www/en_us/favicon.ico"
+      form_url: "https://example.com/ping/{{ value }}/form.json"
+      form_param: {
+        name: "TITLE"
+        type: textarea
+      }
+    }
+    action: {
+      label: "Change Status"
+      url: "https://www.google.com"
+      icon_url: "//c1.sfdcstatic.com/etc/designs/sfdc-www/en_us/favicon.ico"
+      form_url: "https://example.com/ping/{{ value }}/form.json"
+      form_param: {
+        name: "TITLE"
+        type: textarea
+      }
+    }
   }
 
   dimension: acv {
     type: number
-    sql: ${TABLE}."ACV" ;;
+    sql:  ${TABLE}."ACV" ;;
+    action: {
+      label: "Update ACV"
+      url: "https://www.google.com"
+      icon_url: "//c1.sfdcstatic.com/etc/designs/sfdc-www/en_us/favicon.ico"
+      form_url: "https://example.com/ping/{{ value }}/form.json"
+      form_param: {
+        name: "TITLE"
+        type: textarea
+      }
+      }
+    action: {
+      label: "Add Note"
+      url: "https://www.google.com"
+      icon_url: "//c1.sfdcstatic.com/etc/designs/sfdc-www/en_us/favicon.ico"
+      form_url: "https://example.com/ping/{{ value }}/form.json"
+      form_param: {
+        name: "TITLE"
+        type: textarea
+      }
+    }
+    action: {
+      label: "Change Status"
+      url: "https://www.google.com"
+      icon_url: "//c1.sfdcstatic.com/etc/designs/sfdc-www/en_us/favicon.ico"
+      form_url: "https://example.com/ping/{{ value }}/form.json"
+      form_param: {
+        name: "TITLE"
+        type: textarea
+      }
+      }
   }
 
   dimension: city {
@@ -24,7 +84,10 @@ view: opportunity {
 
   dimension: close_probability {
     type: string
-    sql: ${TABLE}."CLOSE_PROBABILITY" ;;
+    sql: (CASE
+    WHEN ${TABLE}."STAGE_NAME" = 'Validate' THEN '80 to 89'
+    WHEN ${TABLE}."STAGE_NAME" = 'Closed Lost' THEN '60 to 69'
+    ELSE ${TABLE}."CLOSE_PROBABILITY" END) ;;
   }
 
   dimension_group: closed {
@@ -59,7 +122,10 @@ view: opportunity {
 
   dimension: customer_segment {
     type: string
-    sql: ${TABLE}."CUSTOMER_SEGMENT" ;;
+    sql: CASE
+        WHEN ${TABLE}."FULL_NAME" = 'Lanita Banke' THEN 'Enterprise'
+        WHEN ${TABLE}."FULL_NAME" = 'Cristen Lynema' THEN 'SMB'
+        ELSE ${TABLE}."CUSTOMER_SEGMENT" END ;;
   }
 
   dimension: full_name {
