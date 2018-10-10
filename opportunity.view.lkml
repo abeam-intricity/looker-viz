@@ -15,6 +15,7 @@ view: opportunity {
   dimension: acv {
     type: number
     sql: ${TABLE}."ACV" ;;
+    drill_fields: [opportunity_id, account_name, acv]
   }
 
   dimension: city {
