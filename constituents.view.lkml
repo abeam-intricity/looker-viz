@@ -11,6 +11,13 @@ view: constituents {
     sql: ${TABLE}."AGE" ;;
   }
 
+  dimension: age_tier {
+    type: tier
+    tiers: [29, 49, 65]
+    style: integer
+    sql: ${age} ;;
+  }
+
   dimension: communication_type {
     type: string
     sql: ${TABLE}."COMMUNICATION_TYPE" ;;
