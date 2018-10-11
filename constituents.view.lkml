@@ -1,6 +1,10 @@
 view: constituents {
   sql_table_name: PUBLIC.CONSTITUENTS ;;
 
+  filter: customer_first_name {
+    type: string
+  }
+
   dimension: activism_type {
     type: string
     sql: ${TABLE}."ACTIVISM_TYPE" ;;
