@@ -12,6 +12,8 @@ persist_with: looker_viz_default_datagroup
 
 explore: constituents {}
 
+explore: geo_data {}
+
 explore: opportunity {}
 
 explore: sankey {}
