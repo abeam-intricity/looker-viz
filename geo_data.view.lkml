@@ -46,4 +46,9 @@ view: geo_data {
     type: count
     drill_fields: [id, name]
   }
+
+  measure: total_amt {
+    type: sum
+    sql: ${amt} ;;
+  }
 }
