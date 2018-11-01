@@ -17,6 +17,11 @@ view: geo_data {
     sql: ${TABLE}."CITY" ;;
   }
 
+  dimension: county {
+    type: string
+    sql: ${TABLE}."COUNTY" ;;
+  }
+
   dimension: email {
     type: string
     sql: ${TABLE}."EMAIL" ;;
