@@ -16,6 +16,8 @@ explore: geo_data {}
 
 explore: opportunity {}
 
-explore: sankey {}
+explore: sankey {
+  hidden: yes
+}
 
 explore: timeline {}
