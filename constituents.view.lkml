@@ -108,13 +108,12 @@ view: constituents {
     sql: FLOOR(RANDOM()*(10000-10+1))+1000 ;;
   }
 
-  dimension: sell_this_loan {
+  dimension: send_to_customer {
     type: string
     sql: CASE WHEN ${is_in_progress} THEN 'In Progress' ELSE 'Send to Customer' END ;;
     link: {
       label: "Send to Customer"
       url: "https://google.com"
-      #url: "https://debtx-sell-this-loan-env.us-east-1.elasticbeanstalk.com/{{_user_attributes['id']}}/{{constituents.loan_id._value}}/" #?session_key={{_user_attributes['session_key']}}"
     }
     html: <span class="progress_button" style="font-family: Open Sans,Helvetica,Arial,sans-serif;
         font-size: 12px;
@@ -128,7 +127,7 @@ view: constituents {
         cursor: default;
         text-align: center;
         display: {% if constituents.is_in_progress._value == 'Yes' %}inline{% else %}none{% endif %}">Sent</span>
-      <span class="sell_button" style="font-family: Open Sans,Helvetica,Arial,sans-serif;
+      <span class="send_button" style="font-family: Open Sans,Helvetica,Arial,sans-serif;
         font-size: 12px;
         font-weight: 700;
         text-decoration: none;
