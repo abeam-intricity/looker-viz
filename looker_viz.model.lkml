@@ -21,3 +21,5 @@ explore: sankey {
 }
 
 explore: timeline {}
+
+explore: dt_constituent_opportunities {}

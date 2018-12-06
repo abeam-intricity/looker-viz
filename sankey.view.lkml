@@ -2,6 +2,7 @@ view: sankey {
   sql_table_name: PUBLIC.SANKEY ;;
 
   dimension: constituent_id {
+    primary_key: yes
     type: string
     sql: ${TABLE}."CONSTITUENT_ID" ;;
   }
@@ -9,6 +10,7 @@ view: sankey {
   dimension: contact_channel {
     type: string
     sql: ${TABLE}."CONTACT_CHANNEL" ;;
+    description: "My test"
   }
 
   dimension_group: contact {
@@ -38,6 +40,6 @@ view: sankey {
 
   measure: count {
     type: count
-    drill_fields: []
+    drill_fields: [gift_type, response_channel]
   }
 }
