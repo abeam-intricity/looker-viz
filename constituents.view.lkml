@@ -85,6 +85,12 @@ view: constituents {
   dimension: is_activist {
     type: yesno
     sql: ${activism_type} IS NOT NULL ;;
+    order_by_field: is_activist_order
+  }
+
+  dimension: is_activist_order {
+    type: number
+    sql: CASE WHEN ${activism_type} IS NOT NULL THEN 0 ELSE 1 END ;;
   }
 
   dimension: is_donor {

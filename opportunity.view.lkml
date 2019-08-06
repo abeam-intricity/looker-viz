@@ -78,6 +78,11 @@ view: opportunity {
     drill_fields: [opportunity_id, account_name, acv]
   }
 
+  dimension: age {
+    type: number
+    sql: greatest(0, datediff(day, ${created_raw}, ${closed_raw})) ;;
+  }
+
   dimension: city {
     type: string
     sql: ${TABLE}."CITY" ;;
@@ -158,5 +163,11 @@ view: opportunity {
     type: sum
     sql: ${acv} ;;
     value_format_name: usd
+  }
+
+  measure: last_created {
+    type: date
+    sql: MAX(${created_raw}) ;;
+    convert_tz: no
   }
 }
