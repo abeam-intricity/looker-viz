@@ -10,6 +10,8 @@ datagroup: looker_viz_default_datagroup {
 
 persist_with: looker_viz_default_datagroup
 
+explore: companies {}
+
 explore: constituents {}
 
 explore: geo_data {}
